@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1024.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://fxml.com/fxml/1" fx:controller="controller.RekamMedisController">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: white; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+            <children>
+                <Button mnemonicParsing="false" onAction="#handleKembali" style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="⬅">
+                    <padding><Insets bottom="8.0" left="15.0" right="15.0" top="8.0" /></padding>
+                </Button>
+                <Label text="📋 Arsip Rekam Medis" textFill="#2c3e50">
+                    <font><Font name="System Bold" size="24.0" /></font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.45" style="-fx-padding: 15; -fx-background-color: transparent;">
+            <items>
+                <VBox style="-fx-background-color: white; -fx-background-radius: 8; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);">
+                    <children>
+                        <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                            <tabs>
+                                <Tab text="⏳ Perlu Diarsipkan (Baru)">
+                                    <VBox spacing="10.0" style="-fx-padding: 15;">
+                                        <TableView fx:id="tablePemeriksaan" onMouseClicked="#handlePilihPemeriksaan" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="colTglPeriksa" prefWidth="130.0" text="Tanggal Periksa" />
+                                                <TableColumn fx:id="colNamaPasien" prefWidth="200.0" text="Nama Pasien" />
+                                                <TableColumn fx:id="colDiagnosa" prefWidth="208.5" text="Diagnosa" />
+                                            </columns>
+                                        </TableView>
+                                    </VBox>
+                                </Tab>
+                                
+                                <Tab text="Arsip Tersimpan">
+                                    <VBox spacing="10.0" style="-fx-padding: 15;">
+                                        <TableView fx:id="tableArsip" onMouseClicked="#handlePilihArsip" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="colTglArsip" prefWidth="130.0" text="Tanggal Arsip" />
+                                                <TableColumn fx:id="colNamaArsip" prefWidth="165.0" text="Nama Pasien" />
+                                                <TableColumn fx:id="colRingkasan" prefWidth="243.0" text="Ringkasan" />
+                                            </columns>
+                                        </TableView>
+                                    </VBox>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children>
+                </VBox>
+
+                <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 8; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);">
+                    <children>
+                        <Label text="📝 Detail Rekam Medis" textFill="#2980b9">
+                            <font><Font name="System Bold" size="18.0" /></font>
+                        </Label>
+                        <Separator />
+                        
+                        <GridPane hgap="15.0" vgap="15.0" VBox.vgrow="ALWAYS">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="120.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="30.0" />
+                                <RowConstraints minHeight="60.0" />
+                                <RowConstraints minHeight="60.0" />
+                                <RowConstraints minHeight="100.0" vgrow="ALWAYS" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Nama Pasien:" GridPane.rowIndex="0">
+                                    <font><Font name="System Bold" size="13.0" /></font>
+                                </Label>
+                                <TextField fx:id="txtNama" editable="false" style="-fx-background-color: #ecf0f1; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                <Label text="Hasil Diagnosa:" GridPane.rowIndex="1" GridPane.valignment="TOP"><GridPane.margin><Insets top="5.0"/></GridPane.margin></Label>
+                                <TextArea fx:id="txtDiagnosa" editable="false" style="-fx-background-color: #ecf0f1;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                <Label text="Catatan Dokter:" GridPane.rowIndex="2" GridPane.valignment="TOP"><GridPane.margin><Insets top="5.0"/></GridPane.margin></Label>
+                                <TextArea fx:id="txtCatatan" editable="false" style="-fx-background-color: #ecf0f1;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                <Label text="Ringkasan Akhir:" textFill="#d35400" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                                    <font><Font name="System Bold" size="13.0" /></font>
+                                    <GridPane.margin><Insets top="5.0"/></GridPane.margin>
+                                </Label>
+                                <TextArea fx:id="txtRingkasan" promptText="Ketikkan ringkasan rekam medis untuk diarsipkan..." style="-fx-border-color: #d35400; -fx-border-radius: 3;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                            </children>
+                        </GridPane>
+                        
+                        <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                            <Button mnemonicParsing="false" onAction="#handleBersihkan" style="-fx-background-color: #95a5a6; -fx-text-fill: white;" text="Batal" />
+                            <Button fx:id="btnSimpan" mnemonicParsing="false" onAction="#handleSimpan" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="📥 Arsipkan Rekam Medis">
+                                <padding><Insets bottom="10.0" left="20.0" right="20.0" top="10.0" /></padding>
+                            </Button>
+                        </HBox>
+                    </children>
+                </VBox>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>

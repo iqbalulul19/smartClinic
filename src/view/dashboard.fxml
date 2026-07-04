@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.DashboardController"
+            stylesheets="@style.css"
+            styleClass="root-dashboard">
+
+    <!-- SIDEBAR -->
+<left>
+        <ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="sidebar-scroll" style="-fx-background: #1a252f; -fx-background-color: #1a252f; -fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 0;">
+            <VBox fx:id="sidebar" spacing="5" alignment="TOP_CENTER" prefWidth="240" styleClass="sidebar" style="-fx-padding: 0 0 25 0;">
+                
+                <VBox alignment="CENTER" style="-fx-padding: 15 0 10 0;">
+                    <Button text="☰" onAction="#toggleSidebar" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 18px; -fx-background-radius: 8; -fx-cursor: hand; -fx-min-width: 40; -fx-min-height: 40;" />
+                </VBox>
+                
+                <!-- <Label fx:id="logoTitle" text="SMART CLINIC" styleClass="logo-title" style="-fx-padding: 0 0 15 0;"/> -->
+                <Separator prefWidth="180"/>
+
+                <Button fx:id="btnDashboard" text="🏠  Dashboard" styleClass="menu-btn"/>
+                <Label fx:id="lblMaster" text="MASTER DATA" styleClass="menu-group"/>
+                <Button fx:id="btnPasien" text="👨‍⚕  Pasien" styleClass="menu-btn" onAction="#openPasien"/>
+                <Button fx:id="btnDokter" text="🩺  Dokter" styleClass="menu-btn" onAction="#openDokter" />
+                <Button fx:id="btnPetugas" text="👩‍💼  Petugas" styleClass="menu-btn" onAction="#openPetugas"/>
+                <Button fx:id="btnObat" text="💊  Obat" styleClass="menu-btn" onAction="#openObat"/>
+
+                <Label fx:id="lblTransaksi" text="TRANSAKSI" styleClass="menu-group"/>
+                <Button fx:id="btnPendaftaran" text="📝  Pendaftaran" styleClass="menu-btn"  onAction="#openPendaftaran" />
+                <Button fx:id="btnPemeriksaan" text="🩻  Pemeriksaan" styleClass="menu-btn" onAction="#openPemeriksaan"  />
+                <Button fx:id="btnRekam" text="📋  Rekam Medis" styleClass="menu-btn" onAction="#openRekam"/>
+                <Button fx:id="btnPrediksi" text="🧠  Prediksi ML" styleClass="menu-btn" onAction="#openPrediksi"/>
+
+                <Label fx:id="lblLaporan" text="LAPORAN" styleClass="menu-group" />
+                <Button fx:id="btnRiwayatPrediksi" text="📊  Hasil &amp; Riwayat" styleClass="menu-btn" onAction="#openRiwayatPrediksi"/>
+                <Button fx:id="btnLaporanKlinik" text="📈  Laporan Klinik" styleClass="menu-btn" onAction="#openLaporanKlinik"/>
+
+                <Region VBox.vgrow="ALWAYS"/>
+                <Button fx:id="btnLogout" text="🚪 Logout" styleClass="logout-btn" onAction="#handleLogout"/>
+            </VBox>
+        </ScrollPane>
+    </left>
+
+    <center>
+        <VBox spacing="0" style="-fx-background-color: #f0f2f5;">
+            
+            <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-background-color: white; -fx-padding: 15 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                
+                <VBox spacing="2">
+                    <Label text="SMART CLINIC" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <Label text="Selamat Datang di Smart Clinic System" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                    <Label fx:id="lblJamTanggal" text="Memuat waktu..." style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #34495e; -fx-padding: 4 0 0 0;" />
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <HBox alignment="CENTER" spacing="20" style="-fx-background-color: transparent; -fx-padding: 0;">
+                    
+                    <HBox alignment="CENTER_LEFT" spacing="8.0" minHeight="30.0" prefHeight="30.0" maxHeight="30.0" prefWidth="230.0" style="-fx-background-color: #f4f6f9; -fx-background-radius: 15; -fx-border-color: #dcdde1; -fx-border-radius: 15; -fx-padding: 0 12;">
+                        <Label text="🔍" textFill="#95a5a6" style="-fx-font-size: 12px;" />
+
+                        <TextField fx:id="txtSearch" promptText="Cari nama pasien..." style="-fx-background-color: transparent; -fx-prompt-text-fill: #95a5a6; -fx-padding: 0; -fx-font-size: 12px;" HBox.hgrow="ALWAYS" />
+                    </HBox>
+
+                    <Separator orientation="VERTICAL" prefHeight="25" />
+
+                    <HBox alignment="CENTER" spacing="10" style="-fx-cursor: hand;">
+                        <VBox alignment="CENTER_RIGHT">
+                            <Label fx:id="lblNamaNavbar" text="Halo, User" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #2c3e50;"/>
+                            <Label fx:id="lblRoleNavbar" text="Role" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d;"/>
+                        </VBox>
+                        <Label text="👤" style="-fx-font-size: 20px; -fx-background-color: #d1d8e0; -fx-background-radius: 50; -fx-min-width: 40; -fx-min-height: 40; -fx-alignment: center;"/>
+                    </HBox>
+                </HBox>
+            </HBox>
+
+            <VBox spacing="25" style="-fx-padding: 25;">
+                
+                <HBox spacing="20">
+                    <VBox spacing="10" prefWidth="250" prefHeight="120" styleClass="card-blue">
+                        <Label text="👨‍⚕ Total Pasien" styleClass="card-title"/>
+                        <Label fx:id="lblTotalPasien" text="245" textFill="WHITE" styleClass="card-value"/>
+                    </VBox>
+
+                    <VBox spacing="10" prefWidth="250" prefHeight="120" styleClass="card-green">
+                        <Label text="📋 Rekam Medis" styleClass="card-title"/>
+                        <Label fx:id="lblTotalRekamMedis" text="1,240" textFill="WHITE" styleClass="card-value"/>
+                    </VBox>
+
+                    <VBox spacing="10" prefWidth="250" prefHeight="120" styleClass="card-orange">
+                        <Label text="🧠 Prediksi" styleClass="card-title"/>
+                        <Label fx:id="lblTotalPrediksi" text="532" textFill="WHITE" styleClass="card-value"/>
+                    </VBox>
+
+                    <VBox spacing="10" prefWidth="250" prefHeight="120" styleClass="card-red">
+                        <Label text="💊 Obat" styleClass="card-title"/>
+                        <Label fx:id="lblTotalObat" text="85" textFill="WHITE" styleClass="card-value"/>
+                    </VBox>
+                </HBox>
+
+                <VBox spacing="15" styleClass="table-container">
+                    <Label text="Data Pasien Terbaru" styleClass="section-title"/>
+                    <TableView fx:id="tablePasienTerbaru" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colId" prefWidth="100.0" text="ID" />
+                            <TableColumn fx:id="colNama" prefWidth="250.0" text="Nama" />
+                            <TableColumn fx:id="colUmur" prefWidth="120.0" text="Umur" />
+                            <TableColumn fx:id="colGender" prefWidth="180.0" text="Gender" />
+                            <TableColumn fx:id="colAlamat" prefWidth="300.0" text="Alamat" />
+                        </columns>
+                    </TableView>
+                </VBox>
+
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

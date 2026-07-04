@@ -1,0 +1,286 @@
+/* =================================
+   ROOT
+================================= */
+
+.root {
+
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #f8fafc;
+}
+
+
+/* =================================
+   LABEL TITLE
+================================= */
+
+.label-title {
+
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+
+/* =================================
+   LABEL SUBTITLE
+================================= */
+
+.label-subtitle {
+
+    -fx-font-size: 14px;
+    -fx-text-fill: #64748b;
+}
+
+
+/* =================================
+   TEXTFIELD
+================================= */
+
+.text-field,
+.password-field,
+.combo-box,
+.date-picker,
+.text-area {
+
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+
+    -fx-border-color: #cbd5e1;
+
+    -fx-padding: 10;
+
+    -fx-font-size: 14px;
+
+    -fx-background-color: white;
+}
+
+
+/* focus */
+
+.text-field:focused,
+.password-field:focused,
+.combo-box:focused,
+.date-picker:focused,
+.text-area:focused {
+
+    -fx-border-color: #2563eb;
+}
+
+
+/* =================================
+   TABLEVIEW
+================================= */
+
+.table-view {
+
+    -fx-background-radius: 14;
+
+    -fx-border-radius: 14;
+
+    -fx-border-color: #e2e8f0;
+
+    -fx-padding: 8;
+}
+
+
+/* header */
+
+.table-view .column-header {
+
+    -fx-background-color: #2563eb;
+}
+
+.table-view .column-header .label {
+
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+}
+
+
+/* row hover */
+
+.table-row-cell:hover {
+
+    -fx-background-color: #eff6ff;
+}
+
+
+/* =================================
+   BUTTON PRIMARY
+================================= */
+
+.btn-primary {
+
+    -fx-background-color: #2563eb;
+
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+
+    -fx-cursor: hand;
+
+    -fx-padding: 10 20 10 20;
+}
+
+.btn-primary:hover {
+
+    -fx-background-color: #1d4ed8;
+}
+
+
+/* =================================
+   BUTTON SUCCESS
+================================= */
+
+.btn-success {
+
+    -fx-background-color: #22c55e;
+
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+
+    -fx-cursor: hand;
+
+    -fx-padding: 10 20 10 20;
+}
+
+.btn-success:hover {
+
+    -fx-background-color: #16a34a;
+}
+
+
+/* =================================
+   BUTTON DANGER
+================================= */
+
+.btn-danger {
+
+    -fx-background-color: #ef4444;
+
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+
+    -fx-cursor: hand;
+
+    -fx-padding: 10 20 10 20;
+}
+
+.btn-danger:hover {
+
+    -fx-background-color: #dc2626;
+}
+
+
+/* =================================
+   BUTTON SECONDARY
+================================= */
+
+.btn-secondary {
+
+    -fx-background-color: #64748b;
+
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+
+    -fx-cursor: hand;
+
+    -fx-padding: 10 20 10 20;
+}
+
+.btn-secondary:hover {
+
+    -fx-background-color: #475569;
+}
+
+
+/* =================================
+   CARD PANEL
+================================= */
+
+.card {
+
+    -fx-background-color: white;
+
+    -fx-background-radius: 20;
+
+    -fx-padding: 20;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.08),
+        15,
+        0,
+        0,
+        4
+    );
+}
+
+/* Memaksa warna baris tabel tetap Biru Gelap saat dipilih */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #2980b9 !important; /* Warna biru gelap / laut */
+    -fx-background-insets: 0;
+}
+
+/* Memaksa teks di dalam sel menjadi Putih Terang saat dipilih */
+.table-view .table-row-cell:selected .table-cell {
+    -fx-text-fill: #ffffff !important; 
+    -fx-font-weight: bold; /* Opsional: Membuat teks sedikit lebih tebal agar lebih jelas */
+}
+
+/* --- WARNA HEADER/JUDUL KOLOM TABEL --- */
+.table-view .column-header-background {
+    -fx-background-color: #ecf0f1; /* Warna abu-abu terang elegan seperti tabel lainnya */
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 0 1px 1px 0; /* Garis pemisah antar kolom */
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #2c3e50 !important; /* Warna teks gelap/hitam kebiruan */
+    -fx-font-weight: bold;
+}
+
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: #dcdde1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 0;
+}
+
+/* 2. Buat ScrollPane dan area dalamnya menjadi transparan */
+.text-area .scroll-pane, 
+.text-area .scroll-pane .viewport, 
+.text-area .scroll-pane .content {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+
+/* 3. (Opsional) Beri efek garis biru saat TextArea diklik */
+.text-area:focused {
+    -fx-border-color: #3498db;
+}

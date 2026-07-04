@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #f0f4f8;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PasienDashboardController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            
+            <HBox alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label text="Portal Pasien" textFill="#3498db">
+                           <font><Font name="System Bold" size="24.0" /></font>
+                        </Label>
+                        <Label text="Layanan Mandiri Smart Clinic" textFill="#7f8c8d" />
+                     </children>
+                  </VBox>
+                  
+                  <Region HBox.hgrow="ALWAYS" />
+                  
+                  <Button mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="🚪 Keluar (Logout)">
+                     <padding><Insets bottom="10.0" left="20.0" right="20.0" top="10.0" /></padding>
+                  </Button>
+               </children>
+            </HBox>
+
+            <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
+              <tabs>
+                
+                <Tab text="📝 Pendaftaran Pemeriksaan">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <Label text="Formulir Pendaftaran Periksa" textFill="#2c3e50">
+                                       <font><Font name="System Bold" size="20.0" /></font>
+                                    </Label>
+                                    
+                                    <GridPane hgap="20.0" vgap="15.0" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 5);">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="120.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          
+                                          <Label text="Nama Lengkap:" GridPane.rowIndex="0">
+                                             <font><Font name="System Bold" size="14.0" /></font>
+                                          </Label>
+                                          <TextField fx:id="txtNama" promptText="Masukkan nama sesuai KTP" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                          
+                                          <Label text="Umur (Tahun):" GridPane.rowIndex="1">
+                                             <font><Font name="System Bold" size="14.0" /></font>
+                                          </Label>
+                                          <TextField fx:id="txtUmur" promptText="Contoh: 25" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          
+                                          <Label text="Jenis Kelamin:" GridPane.rowIndex="2">
+                                             <font><Font name="System Bold" size="14.0" /></font>
+                                          </Label>
+                                          <ComboBox fx:id="comboGender" prefWidth="150.0" promptText="- Pilih -" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          
+                                          <Label text="Nomor HP:" GridPane.rowIndex="3">
+                                             <font><Font name="System Bold" size="14.0" /></font>
+                                          </Label>
+                                          <TextField fx:id="txtNoHP" promptText="Contoh: 081234567890" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          
+                                          <Label text="Alamat Lengkap:" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                             <font><Font name="System Bold" size="14.0" /></font>
+                                             <GridPane.margin><Insets top="5.0" /></GridPane.margin>
+                                          </Label>
+                                          <TextArea fx:id="txtAlamat" prefHeight="200.0" prefWidth="200.0" promptText="Tuliskan alamat lengkap tempat tinggal saat ini" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          
+                                          <Label text="Jadwal Dokter:" GridPane.rowIndex="5">
+                                             <font><Font name="System Bold" size="14.0" /></font>
+                                          </Label>
+                                          <ComboBox fx:id="comboDokter" prefWidth="300.0" promptText="-- Pilih Dokter &amp; Jadwal Tersedia --" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                       </children>
+                                    </GridPane>
+                                    
+                                    <Button mnemonicParsing="false" onAction="#handleDaftar" prefWidth="300.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-cursor: hand;" text="📥 Ajukan Pendaftaran">
+                                       <padding><Insets bottom="12.0" left="20.0" right="20.0" top="12.0" /></padding>
+                                    </Button>
+                                    
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                
+                <Tab text="📋 Hasil &amp; Riwayat Pemeriksaan">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Label text="Catatan Medis Anda" textFill="#2c3e50">
+                                             <font><Font name="System Bold" size="18.0" /></font>
+                                          </Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" onAction="#loadRiwayat" style="-fx-background-color: #3498db; -fx-text-fill: white;" text="🔄 Perbarui Data" />
+                                       </children>
+                                    </HBox>
+                                    
+                                    <TableView fx:id="tableRiwayat" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" style="-fx-font-size: 14px;">
+                                      <columns>
+                                        <TableColumn fx:id="colTanggal" prefWidth="120.0" text="Tanggal" />
+                                        <TableColumn fx:id="colDokterRiwayat" prefWidth="180.0" text="Dokter Pemeriksa" />
+                                          <TableColumn fx:id="colKeluhanRiwayat" prefWidth="200.0" text="Keluhan Awal" />
+                                          <TableColumn fx:id="colDiagnosa" prefWidth="250.0" text="Hasil Diagnosa" />
+                                          <TableColumn fx:id="colResep" prefWidth="200.0" text="Resep Obat" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

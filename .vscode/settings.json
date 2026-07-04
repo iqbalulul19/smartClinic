@@ -1,0 +1,18 @@
+{
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "d:/javafx-sdk-21.0.11/lib/*.jar",
+    "d:/javafx-sdk-21.0.11/lib/mysql-connector-java-8.0.28.jar",
+    "d:\\java\\javafx-sdk-21.0.11\\lib\\javafx.base.jar",
+    "d:\\java\\javafx-sdk-21.0.11\\lib\\javafx.controls.jar",
+    "d:\\java\\javafx-sdk-21.0.11\\lib\\javafx.fxml.jar",
+    "d:\\java\\javafx-sdk-21.0.11\\lib\\javafx.graphics.jar",
+    "d:\\java\\javafx-sdk-21.0.11\\lib\\javafx.media.jar",
+    "d:\\java\\javafx-sdk-21.0.11\\lib\\javafx.swing.jar",
+    "d:\\java\\javafx-sdk-21.0.11\\lib\\javafx.web.jar",
+    "d:\\java\\javafx-sdk-21.0.11\\lib\\javafx-swt.jar"
+  ],
+  "java.launch.config": {
+    "vmArgs": "--module-path \"d:/javafx-sdk-21.0.11/lib\" --add-modules javafx.controls,javafx.fxml"
+  }
+}

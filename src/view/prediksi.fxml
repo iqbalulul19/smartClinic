@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PrediksiController">
+   <children>
+      
+      <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="15.0" prefHeight="50.0" prefWidth="1170.0" spacing="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleKembali" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 3; -fx-padding: 5 15 5 15; -fx-cursor: hand;" text="⬅" />
+            <Label text="Prediksi Machine Learning" textFill="#2c3e50">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+
+      <HBox layoutX="14.0" layoutY="80.0" prefHeight="600.0" prefWidth="1170.0" spacing="20.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="80.0">
+         <children>
+            
+            <VBox prefHeight="670.0" prefWidth="440.0" spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-border-color: #dcdde1; -fx-border-radius: 10;">
+               <children>
+                  <Label text="Data Pasien" textFill="#2c3e50">
+                     <font><Font name="System Bold" size="18.0" /></font>
+                  </Label>
+                  <Label text="Pilih Pasien:" />
+                  <ComboBox fx:id="cmbPasien" prefWidth="400.0" promptText="-- Pilih Pasien --" />
+                  
+                  <Label text="Riwayat Prediksi Sebelumnya" textFill="#2c3e50">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                     <VBox.margin><Insets top="15.0" /></VBox.margin>
+                  </Label>
+                  
+                  <TableView fx:id="tableRiwayat" prefHeight="450.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="colTanggal" prefWidth="110.0" text="Tanggal" />
+                      <TableColumn fx:id="colPasien" prefWidth="120.0" text="Nama Pasien" />
+                      <TableColumn fx:id="colHasil" prefWidth="160.0" text="Hasil" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+
+            <VBox prefHeight="670.0" prefWidth="680.0" spacing="15.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <TabPane prefHeight="500.0" prefWidth="680.0" style="-fx-background-color: white; -fx-border-color: #dcdde1;" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                    <tabs>
+                        
+                      <Tab text="Prediksi Diabetes">
+                           <content>
+                              <VBox spacing="20.0" style="-fx-padding: 20;">
+                                 <children>
+                                    <GridPane hgap="15.0" vgap="15.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Pregnancies:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                          <TextField fx:id="txtPregnancies" promptText="misal: 1" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                          <Label text="Glucose:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                          <TextField fx:id="txtGlucose" promptText="misal: 120" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label text="Blood Pressure:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                          <TextField fx:id="txtBloodPressure" promptText="misal: 80" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label text="Skin Thickness:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                          <TextField fx:id="txtSkinThickness" promptText="misal: 20" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label text="Insulin:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                          <TextField fx:id="txtInsulin" promptText="misal: 85" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane hgap="15.0" vgap="15.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="BMI:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                          <TextField fx:id="txtBMI" promptText="misal: 25.4" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                          <Label text="Diabetes Pedigree:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                          <TextField fx:id="txtPedigree" promptText="misal: 0.5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                          <TextField fx:id="txtAge" promptText="Otomatis dari Data Pasien" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                       </children>
+                                    </GridPane>
+                                    <HBox spacing="15.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handlePrediksiDiabetes" style="-fx-background-color: #8e44ad; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;" text="Jalankan Prediksi Diabetes" />
+                                          <Button mnemonicParsing="false" onAction="#handleBersihkan" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 8 15;" text="Bersihkan Form" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                      </Tab>
+
+                      <Tab text="Prediksi Jantung">
+                        <content>
+                          <VBox spacing="15.0" style="-fx-padding: 20;">
+                                 <children>
+                                    <GridPane hgap="15.0" vgap="10.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="180.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="180.0" />
+                                      </columnConstraints>
+                                       <children>
+                                          <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                          <TextField fx:id="txtJantungAge" promptText="Otomatis" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                          <Label text="Jenis Kelamin:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                          <TextField fx:id="txtJantungSex" promptText="Laki-laki/Perempuan" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label text="Dataset:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                          <TextField fx:id="txtJantungDataset" promptText="misal: 1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label text="CP (0-3):" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                          <TextField fx:id="txtJantungCp" promptText="misal: 2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label text="Trestbps:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                          <TextField fx:id="txtJantungTrestbps" promptText="misal: 130" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label text="Chol:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                          <TextField fx:id="txtJantungChol" promptText="misal: 250" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label text="FBS (1=True):" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                                          <TextField fx:id="txtJantungFbs" promptText="misal: 0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <Label text="Restecg:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                          <TextField fx:id="txtJantungRestecg" promptText="misal: 1" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                          <Label text="Thalch:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <TextField fx:id="txtJantungThalch" promptText="misal: 150" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                          <Label text="Exang:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <TextField fx:id="txtJantungExang" promptText="misal: 0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <Label text="Oldpeak:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                          <TextField fx:id="txtJantungOldpeak" promptText="misal: 1.5" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <Label text="Slope:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                          <TextField fx:id="txtJantungSlope" promptText="misal: 2" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                          <Label text="CA:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                          <TextField fx:id="txtJantungCa" promptText="misal: 0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                          <Label text="Thal:" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                          <TextField fx:id="txtJantungThal" promptText="misal: 2" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                       </children>
+                                    </GridPane>
+                                    <HBox spacing="15.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handlePrediksiJantung" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;" text="Jalankan Prediksi Jantung" />
+                                          <Button mnemonicParsing="false" onAction="#handleBersihkan" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 8 15;" text="Bersihkan Form" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                          </VBox>
+                        </content>
+                      </Tab>
+
+                      <Tab text="Prediksi Ginjal">
+                          <content>
+                            <VBox spacing="10.0" style="-fx-padding: 15;">
+                                   <children>
+                                      <GridPane hgap="15.0" vgap="8.0">
+                                        <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="180.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="180.0" />
+                                        </columnConstraints>
+                                         <children>
+                                            <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                            <TextField fx:id="txtGinjalAge" promptText="Otomatis" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                            <Label text="BP:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                            <TextField fx:id="txtGinjalBp" promptText="misal: 80" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                            <Label text="SG:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                            <TextField fx:id="txtGinjalSg" promptText="misal: 1.020" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                            <Label text="AL:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                            <TextField fx:id="txtGinjalAl" promptText="misal: 0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                            <Label text="SU:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                            <TextField fx:id="txtGinjalSu" promptText="misal: 0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                            <Label text="RBC:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                            <TextField fx:id="txtGinjalRbc" promptText="misal: 1" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                            <Label text="PC:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                                            <TextField fx:id="txtGinjalPc" promptText="misal: 1" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                            <Label text="PCC:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                                            <TextField fx:id="txtGinjalPcc" promptText="misal: 0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                            <Label text="BA:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                                            <TextField fx:id="txtGinjalBa" promptText="misal: 0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                            <Label text="BGR:" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                                            <TextField fx:id="txtGinjalBgr" promptText="misal: 120" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                            <Label text="BU:" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                                            <TextField fx:id="txtGinjalBu" promptText="misal: 36" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                            <Label text="SC:" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+                                            <TextField fx:id="txtGinjalSc" promptText="misal: 1.2" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                            <Label text="SOD:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                            <TextField fx:id="txtGinjalSod" promptText="misal: 135" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                            <Label text="POT:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                            <TextField fx:id="txtGinjalPot" promptText="misal: 4.5" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                            <Label text="HEMO:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                            <TextField fx:id="txtGinjalHemo" promptText="misal: 15.4" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                            <Label text="PCV:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                            <TextField fx:id="txtGinjalPcv" promptText="misal: 44" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                            <Label text="WC:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                            <TextField fx:id="txtGinjalWc" promptText="misal: 7800" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                            <Label text="RC:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                            <TextField fx:id="txtGinjalRc" promptText="misal: 5.2" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                            <Label text="HTN:" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                            <TextField fx:id="txtGinjalHtn" promptText="misal: 0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                            <Label text="DM:" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                            <TextField fx:id="txtGinjalDm" promptText="misal: 0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                                            <Label text="CAD:" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                            <TextField fx:id="txtGinjalCad" promptText="misal: 0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                                            <Label text="APPET:" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                            <TextField fx:id="txtGinjalAppet" promptText="misal: 1" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                                            <Label text="PE:" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                                            <TextField fx:id="txtGinjalPe" promptText="misal: 0" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                                            <Label text="ANE:" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                                            <TextField fx:id="txtGinjalAne" promptText="misal: 0" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+                                         </children>
+                                      </GridPane>
+                                      <HBox spacing="15.0">
+                                         <children>
+                                            <Button mnemonicParsing="false" onAction="#handlePrediksiGinjal" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;" text="Jalankan Prediksi Ginjal" />
+                                            <Button mnemonicParsing="false" onAction="#handleBersihkan" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 8 15;" text="Bersihkan Form" />
+                                         </children>
+                                      </HBox>
+                                   </children>
+                            </VBox>
+                          </content>
+                      </Tab>
+
+                    </tabs>
+                  </TabPane>
+
+                  <VBox alignment="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #ecf0f1; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 10;">
+                     <children>
+                        <Label text="HASIL PREDIKSI SISTEM" textFill="#7f8c8d">
+                           <font><Font name="System Bold" size="12.0" /></font>
+                        </Label>
+                        <Label fx:id="lblHasil" alignment="CENTER" prefHeight="45.0" prefWidth="650.0" text="Belum ada prediksi diproses..." textAlignment="CENTER" wrapText="true">
+                           <font><Font size="16.0" /></font>
+                           <VBox.margin><Insets top="5.0" /></VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

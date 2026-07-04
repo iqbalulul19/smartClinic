@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="15.0" prefWidth="400.0" prefHeight="380.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://fxml.com/fxml/1" fx:controller="controller.LoginController" style="-fx-background-color: #f5f5f5;">
+    <padding>
+        <Insets top="25.0" right="25.0" bottom="25.0" left="25.0"/>
+    </padding>
+    
+    <Label text="SMART CLINIC LOGIN">
+        <font>
+            <Font name="System Bold" size="22.0" />
+        </font>
+    </Label>
+    
+    <VBox spacing="5.0" prefWidth="320.0">
+        <Label text="Username" style="-fx-font-weight: bold;" />
+        <TextField fx:id="txtUsername" promptText="Masukkan username..." style="-fx-padding: 8px;" />
+    </VBox>
+    
+    <VBox spacing="5.0" prefWidth="320.0">
+        <Label text="Password" style="-fx-font-weight: bold;" />
+        <PasswordField fx:id="txtPassword" promptText="Masukkan password..." style="-fx-padding: 8px;" />
+    </VBox>
+    
+    <Button fx:id="btnLogin" text="Login" prefWidth="150.0" onAction="#handleLogin" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8px; -fx-cursor: hand;" />
+
+    <VBox alignment="CENTER" spacing="2.0">
+        <VBox.margin><Insets top="10.0" /></VBox.margin>
+        <Label text="Belum punya akun?" style="-fx-text-fill: #7f8c8d;" />
+        <Button text="Daftar" onAction="#handleGoToRegister" style="-fx-background-color: transparent; -fx-text-fill: #2ecc71; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold;" />
+    </VBox>
+    
+</VBox>

@@ -1,0 +1,13 @@
+--Arsitektur Sistem Klinik--
+
+Pasien Datang
+      ↓
+Pendaftaran
+      ↓
+Pemeriksaan Dokter
+      ↓
+Rekam Medis
+      ↓
+Prediksi Machine Learning
+      ↓
+Hasil & Riwayat

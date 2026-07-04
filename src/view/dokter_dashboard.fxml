@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #f0f4f8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://fxml.com/fxml/1" fx:controller="controller.DokterDashboardController">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #ffffff; -fx-padding: 15 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+            <children>
+                <VBox>
+                    <children>
+                        <Label fx:id="lblNamaDokter" text="Ruang Pemeriksaan Dokter" textFill="#2c3e50">
+                            <font><Font name="System Bold" size="22.0" /></font>
+                        </Label>
+                        <Label text="Sistem Manajemen Rekam Medis Terpadu" textFill="#7f8c8d" />
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="🚪 Logout">
+                    <padding><Insets bottom="8.0" left="15.0" right="15.0" top="8.0" /></padding>
+                </Button>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.4" style="-fx-background-color: transparent; -fx-padding: 20;">
+            <items>
+                
+                <VBox spacing="10.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                    <children>
+                        <HBox alignment="CENTER_LEFT">
+                            <Label text="📋 Antrian Pasien Hari Ini" textFill="#2980b9">
+                                <font><Font name="System Bold" size="18.0" /></font>
+                            </Label>
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button mnemonicParsing="false" onAction="#loadAntrian" style="-fx-background-color: #f1c40f; -fx-text-fill: white;" text="🔄 Refresh" />
+                        </HBox>
+                        <Separator />
+                        <TableView fx:id="tableAntrian" onMouseClicked="#handlePilihPasien" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colNoAntrian" prefWidth="70.0" style="-fx-alignment: CENTER; -fx-font-weight: bold;" text="Antrian" />
+                                <TableColumn fx:id="colNamaPasien" prefWidth="180.0" text="Nama Pasien" />
+                                <TableColumn fx:id="colKeluhan" prefWidth="150.0" text="Keluhan Awal" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+
+                <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 8; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                             <Label text="🩺 Rekam Medis &amp; Pemeriksaan" textFill="#27ae60">
+                                 <font><Font name="System Bold" size="20.0" /></font>
+                             </Label>
+                             <Region HBox.hgrow="ALWAYS" />
+                             <Button style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold;" text="🧠 Jalankan Prediksi ML" />
+                        </HBox>
+                        <Separator />
+                        
+                        <GridPane hgap="15.0" vgap="15.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="120.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="80.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Pasien Terpilih:" GridPane.rowIndex="0">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                </Label>
+                                <TextField fx:id="txtNamaPasienForm" editable="false" promptText="Pilih pasien dari antrian sebelah kiri..." style="-fx-background-color: #ecf0f1;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                
+                                <Label text="Tekanan Darah:" GridPane.rowIndex="1">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                </Label>
+                                <HBox spacing="10.0" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <TextField fx:id="txtTensi" promptText="Misal: 120/80" prefWidth="150.0" />
+                                    <Label text="mmHg" textFill="#7f8c8d" />
+                                </HBox>
+
+                                <Label text="Gula Darah:" GridPane.rowIndex="2">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                </Label>
+                                <HBox spacing="10.0" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <TextField fx:id="txtGula" promptText="Misal: 110" prefWidth="150.0" />
+                                    <Label text="mg/dL" textFill="#7f8c8d" />
+                                </HBox>
+
+                                <Label text="Hasil Diagnosa:" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                    <GridPane.margin><Insets top="5.0" /></GridPane.margin>
+                                </Label>
+                                <TextArea fx:id="txtDiagnosa" promptText="Tuliskan hasil pemeriksaan dan diagnosa dokter di sini..." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                            </children>
+                        </GridPane>
+                        
+                        <Label text="Resep Obat:">
+                            <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <ComboBox fx:id="comboObat" maxWidth="1.7976931348623157E308" promptText="-- Pilih Obat untuk Pasien --" />
+                        
+                        <Region VBox.vgrow="ALWAYS" />
+                        
+                        <Button mnemonicParsing="false" onAction="#handleSimpanRekamMedis" prefHeight="45.0" maxWidth="1.7976931348623157E308" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-cursor: hand;" text="💾 Simpan Rekam Medis &amp; Selesaikan Antrian" />
+                    </children>
+                </VBox>
+                
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,795 @@
+.root{
+
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #f5f7fa;
+}
+
+.title{
+
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.top-panel{
+
+    -fx-padding: 20;
+    -fx-background-color: white;
+}
+
+.main-panel{
+
+    -fx-padding: 20;
+}
+
+.button{
+
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+}
+
+.table-view{
+
+    -fx-pref-height: 400;
+}
+.icon-button{
+
+    -fx-background-radius: 50;
+
+    -fx-padding: 10 12 10 12;
+
+    -fx-background-color: #ffffff;
+
+    -fx-cursor: hand;
+
+    -fx-border-color: #dcdcdc;
+
+    -fx-border-radius: 50;
+}
+
+.icon-button:hover{
+
+    -fx-background-color: #2d89ef;
+
+    -fx-text-fill: white;
+}
+.icon-button:hover .glyph-icon{
+
+    -fx-fill: white;
+}
+.icon-button{
+
+    -fx-font-size: 16px;
+
+    -fx-background-radius: 50;
+
+    -fx-background-color: white;
+
+    -fx-border-color: #dcdcdc;
+
+    -fx-border-radius: 50;
+
+    -fx-cursor: hand;
+
+    -fx-padding: 8 12 8 12;
+}
+
+.icon-button:hover{
+
+    -fx-background-color: #2d89ef;
+
+    -fx-text-fill: white;
+}
+/* =========================
+   BUTTON BASE
+========================= */
+
+.button{
+
+    -fx-font-size: 16px;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 50;
+
+    -fx-border-radius: 50;
+
+    -fx-cursor: hand;
+
+    -fx-padding: 10 14 10 14;
+
+    -fx-text-fill: white;
+
+    -fx-border-color: transparent;
+}
+
+/* =========================
+   TAMBAH
+========================= */
+
+.btn-tambah{
+
+    -fx-background-color: #2ecc71;
+}
+
+.btn-tambah:hover{
+
+    -fx-background-color: #27ae60;
+}
+
+/* =========================
+   EDIT
+========================= */
+
+.btn-edit{
+
+    -fx-background-color: #3498db;
+}
+
+.btn-edit:hover{
+
+    -fx-background-color: #2980b9;
+}
+
+/* =========================
+   HAPUS
+========================= */
+
+.btn-hapus{
+
+    -fx-background-color: #e74c3c;
+}
+
+.btn-hapus:hover{
+
+    -fx-background-color: #c0392b;
+}
+
+/* =========================
+   REFRESH
+========================= */
+
+.btn-refresh{
+
+    -fx-background-color: #f39c12;
+}
+
+.btn-refresh:hover{
+
+    -fx-background-color: #d68910;
+}
+
+/* =========================
+   CARI
+========================= */
+
+.btn-cari{
+
+    -fx-background-color: #9b59b6;
+}
+
+.btn-cari:hover{
+
+    -fx-background-color: #8e44ad;
+}
+
+/* =========================
+   CLOSE
+========================= */
+
+.btn-close{
+
+    -fx-background-color: #34495e;
+}
+
+.btn-close:hover{
+
+    -fx-background-color: #2c3e50;
+}
+.top-panel{
+
+    -fx-padding: 20;
+
+    -fx-background-color: white;
+
+    -fx-effect:
+        dropshadow(
+            gaussian,
+            rgba(0,0,0,0.08),
+            10,
+            0,
+            0,
+            2
+        );
+}
+.table-view{
+
+    -fx-background-color: white;
+
+    -fx-border-color: #dfe6e9;
+
+    -fx-border-radius: 10;
+
+    -fx-background-radius: 10;
+}
+
+.table-view .column-header{
+
+    -fx-background-color: #2d89ef;
+}
+
+.table-view .column-header .label{
+
+    -fx-text-fill: white;
+
+    -fx-font-weight: bold;
+}
+/* BUTTON SIMPAN */
+.btn-save {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+}
+
+.btn-save:hover {
+    -fx-background-color: #27ae60;
+}
+
+/* BUTTON BATAL */
+.btn-cancel {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+}
+
+.btn-cancel:hover {
+    -fx-background-color: #c0392b;
+}
+/* TITLE */
+.title {
+    -fx-font-size: 38px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+.subtitle {
+    -fx-font-size: 16px;
+    -fx-text-fill: #64748b;
+}
+
+/* DASHBOARD CARD */
+.menu-card {
+
+    -fx-background-color: linear-gradient(
+            to right,
+            #3b82f6,
+            #2563eb);
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 18px;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 20;
+
+    -fx-cursor: hand;
+
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0,0,0,0.2),
+            10,0,0,4);
+}
+
+.menu-card:hover {
+
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* LOGOUT */
+.menu-card-logout {
+
+    -fx-background-color: linear-gradient(
+            to right,
+            #ef4444,
+            #dc2626);
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 18px;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 20;
+
+    -fx-cursor: hand;
+}
+/* ROOT */
+.root-dashboard {
+    -fx-background-color: #f1f5f9;
+}
+
+/* SIDEBAR */
+.sidebar {
+
+    -fx-background-color: linear-gradient(
+            to bottom,
+            #0f172a,
+            #1e293b);
+
+    -fx-padding: 30 20 30 20;
+}
+
+/* LOGO */
+.logo-title {
+
+    -fx-font-size: 28px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: white;
+}
+
+/* MENU BUTTON */
+.menu-btn {
+
+    -fx-background-color: transparent;
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 16px;
+
+    -fx-font-weight: bold;
+
+    -fx-pref-width: 200;
+
+    -fx-pref-height: 45;
+
+    -fx-alignment: CENTER_LEFT;
+
+    -fx-background-radius: 12;
+
+    -fx-cursor: hand;
+}
+
+.menu-btn:hover {
+
+    -fx-background-color: rgba(255,255,255,0.15);
+}
+
+/* LOGOUT */
+.logout-btn {
+
+    -fx-background-color: #ef4444;
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 15px;
+
+    -fx-font-weight: bold;
+
+    -fx-pref-width: 180;
+
+    -fx-pref-height: 45;
+
+    -fx-background-radius: 15;
+
+    -fx-cursor: hand;
+}
+
+/* TOPBAR */
+.topbar {
+
+    -fx-background-color: white;
+
+    -fx-padding: 20 30 20 30;
+
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0,0,0,0.08),
+            10,0,0,3);
+}
+
+/* TITLE */
+.dashboard-title {
+
+    -fx-font-size: 30px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #0f172a;
+}
+
+.dashboard-subtitle {
+
+    -fx-font-size: 14px;
+
+    -fx-text-fill: #64748b;
+}
+
+/* SEARCH */
+.search-box {
+
+    -fx-background-radius: 15;
+
+    -fx-font-size: 14px;
+
+    -fx-padding: 10;
+}
+
+/* CARD GENERAL */
+.card-title {
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 18px;
+
+    -fx-font-weight: bold;
+}
+
+.card-value {
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 34px;
+
+    -fx-font-weight: bold;
+}
+
+/* BLUE CARD */
+.card-blue {
+
+    -fx-background-color: linear-gradient(
+            to right,
+            #3b82f6,
+            #2563eb);
+
+    -fx-padding: 20;
+
+    -fx-background-radius: 20;
+
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0,0,0,0.15),
+            10,0,0,4);
+}
+
+/* GREEN CARD */
+.card-green {
+
+    -fx-background-color: linear-gradient(
+            to right,
+            #22c55e,
+            #16a34a);
+
+    -fx-padding: 20;
+
+    -fx-background-radius: 20;
+}
+
+/* ORANGE CARD */
+.card-orange {
+
+    -fx-background-color: linear-gradient(
+            to right,
+            #f59e0b,
+            #ea580c);
+
+    -fx-padding: 20;
+
+    -fx-background-radius: 20;
+}
+
+/* RED CARD */
+.card-red {
+
+    -fx-background-color: linear-gradient(
+            to right,
+            #ef4444,
+            #dc2626);
+
+    -fx-padding: 20;
+
+    -fx-background-radius: 20;
+}
+
+/* TABLE */
+.table-container {
+
+    -fx-background-color: white;
+
+    -fx-padding: 20;
+
+    -fx-background-radius: 20;
+
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0,0,0,0.08),
+            10,0,0,3);
+}
+
+.section-title {
+
+    -fx-font-size: 22px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #0f172a;
+}
+
+/* GROUP MENU */
+.menu-group {
+
+    -fx-text-fill: #94a3b8;
+
+    -fx-font-size: 13px;
+
+    -fx-font-weight: bold;
+
+    -fx-padding: 15 0 0 10;
+}
+
+.toggle-btn{
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-pref-width: 45px;
+    -fx-pref-height: 45px;
+    -fx-cursor: hand;
+}
+
+.toggle-btn:hover{
+    -fx-background-color: #1d4ed8;
+}
+.sidebar-scroll{
+    -fx-background: #0f172a;
+    -fx-background-color: #0f172a;
+    -fx-border-color: transparent;
+}
+
+.sidebar-scroll .viewport{
+    -fx-background-color: #0f172a;
+}
+
+.logo-title{
+    -fx-font-size: 26px;
+}
+.btn-edit{
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-background-radius: 50;
+    -fx-pref-width: 45;
+    -fx-pref-height: 45;
+    -fx-cursor: hand;
+}
+
+.btn-edit:hover{
+    -fx-background-color: #2980b9;
+}
+
+.btn-edit{
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-background-radius: 50;
+    -fx-pref-width: 45;
+    -fx-pref-height: 45;
+    -fx-cursor: hand;
+}
+
+.btn-edit:hover{
+    -fx-background-color: #2980b9;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+.text-field{
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 8 15 8 15;
+    -fx-font-size: 14px;
+}
+/* BACKGROUND */
+.bg-form{
+    -fx-background-color: linear-gradient(to bottom right,#f8fafc,#e2e8f0);
+}
+
+/* HEADER */
+.header-form{
+    -fx-background-color: linear-gradient(to right,#2563eb,#1e40af);
+    -fx-background-radius: 0 0 40 40;
+}
+
+/* TITLE */
+.title-form{
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.subtitle-form{
+    -fx-font-size: 15px;
+    -fx-text-fill: rgba(255,255,255,0.9);
+}
+
+/* CARD */
+.card-form{
+    -fx-background-color: white;
+    -fx-background-radius: 25;
+    -fx-effect: dropshadow(gaussian,
+            rgba(0,0,0,0.15),
+            20,0,0,5);
+}
+
+/* LABEL */
+.label-form{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+}
+
+/* INPUT */
+.modern-field{
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #cbd5e1;
+}
+
+/* BUTTON SAVE */
+.btn-save-modern{
+    -fx-background-color: linear-gradient(to right,#22c55e,#16a34a);
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 12 30;
+    -fx-cursor: hand;
+}
+
+.btn-save-modern:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* BUTTON CANCEL */
+.btn-cancel-modern{
+    -fx-background-color: linear-gradient(to right,#ef4444,#dc2626);
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 12 30;
+    -fx-cursor: hand;
+}
+
+.btn-cancel-modern:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+.modern-area{
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-padding: 12;
+    -fx-font-size: 14px;
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #cbd5e1;
+}
+
+.btn-danger {
+
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+}
+/* =========================
+   BUTTON PRIMARY
+========================= */
+
+.btn-primary {
+
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+}
+
+/* hover */
+.btn-primary:hover {
+
+    -fx-background-color: #1d4ed8;
+}
+
+
+/* =========================
+   BUTTON SUCCESS
+========================= */
+
+.btn-success {
+
+    -fx-background-color: #22c55e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+}
+
+.btn-success:hover {
+
+    -fx-background-color: #16a34a;
+}
+
+
+/* =========================
+   BUTTON DANGER
+========================= */
+
+.btn-danger {
+
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+}
+
+.btn-danger:hover {
+
+    -fx-background-color: #dc2626;
+}
+
+
+/* =========================
+   BUTTON SECONDARY
+========================= */
+
+.btn-secondary {
+
+    -fx-background-color: #64748b;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 30;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+
+    -fx-background-color: #475569;
+}
+.btn-success {
+
+    -fx-background-color: #22c55e;
+    -fx-text-fill: white;
+
+    -fx-background-radius: 30;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.15),
+        10,
+        0,
+        0,
+        4
+    );
+}
