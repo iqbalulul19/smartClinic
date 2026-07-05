@@ -32,6 +32,7 @@ import javafx.scene.layout.VBox;
 import util.SceneUtil;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 
 public class DashboardController implements Initializable {
@@ -42,7 +43,7 @@ public class DashboardController implements Initializable {
     private boolean collapsed = false;
     @FXML private VBox vboxMaster, vboxTransaksi, vboxLaporan;
     @FXML private Label lblMaster, lblTransaksi, lblLaporan;
-    @FXML private Button btnPendaftaran, btnPemeriksaan, btnRekam, btnPrediksi, btnRiwayatPrediksi, btnLaporanKlinik;
+    @FXML private Button btnPendaftaran, btnPemeriksaan, btnRekam, btnPrediksi, btnRiwayatPrediksi, btnLaporanKlinik, btnPoli, btnJadwal;
     
     @FXML private Label lblTotalPasien;
     @FXML private Label lblTotalObat;
@@ -117,6 +118,8 @@ public class DashboardController implements Initializable {
         setTombolPresisi(btnPasien, "👨‍⚕", "Pasien");
         setTombolPresisi(btnDokter, "🩺", "Dokter");
         setTombolPresisi(btnPetugas, "👩‍💼", "Petugas");
+        setTombolPresisi(btnPoli, "🏥", "Poli");
+        setTombolPresisi(btnJadwal, "📅", "Jadwal");
         setTombolPresisi(btnObat, "💊", "Obat");
         setTombolPresisi(btnPendaftaran, "📝", "Pendaftaran");
         setTombolPresisi(btnPemeriksaan, "🩻", "Pemeriksaan");
@@ -150,9 +153,6 @@ public class DashboardController implements Initializable {
     @FXML
 private void toggleSidebar() {
     if (!collapsed) {
-        // ==========================================
-        // MODE TUTUP (COLLAPSED)
-        // ==========================================
         sidebar.setPrefWidth(80);
         
         // Sembunyikan semua label dan hapus ruang kosongnya
@@ -166,6 +166,8 @@ private void toggleSidebar() {
         btnPasien.setContentDisplay(javafx.scene.control.ContentDisplay.GRAPHIC_ONLY);
         btnDokter.setContentDisplay(javafx.scene.control.ContentDisplay.GRAPHIC_ONLY);
         btnPetugas.setContentDisplay(javafx.scene.control.ContentDisplay.GRAPHIC_ONLY);
+        btnPoli.setContentDisplay(javafx.scene.control.ContentDisplay.GRAPHIC_ONLY);
+        btnJadwal.setContentDisplay(javafx.scene.control.ContentDisplay.GRAPHIC_ONLY);
         btnObat.setContentDisplay(javafx.scene.control.ContentDisplay.GRAPHIC_ONLY);
         btnPendaftaran.setContentDisplay(javafx.scene.control.ContentDisplay.GRAPHIC_ONLY);
         btnPemeriksaan.setContentDisplay(javafx.scene.control.ContentDisplay.GRAPHIC_ONLY);
@@ -176,10 +178,7 @@ private void toggleSidebar() {
         
         collapsed = true;
     } else {
-        // ==========================================
-        // MODE BUKA (EXPANDED)
-        // ==========================================
-        sidebar.setPrefWidth(240); // Kembali ke ukuran lebar normal
+        sidebar.setPrefWidth(240); 
         
         // Tampilkan kembali judul aplikasi dan grup menu utama
         if (logoTitle != null) { logoTitle.setVisible(true); logoTitle.setManaged(true); }
@@ -200,6 +199,8 @@ private void toggleSidebar() {
         btnDokter.setContentDisplay(javafx.scene.control.ContentDisplay.LEFT);
         btnPetugas.setContentDisplay(javafx.scene.control.ContentDisplay.LEFT);
         btnObat.setContentDisplay(javafx.scene.control.ContentDisplay.LEFT);
+        btnPoli.setContentDisplay(javafx.scene.control.ContentDisplay.LEFT);
+        btnJadwal.setContentDisplay(javafx.scene.control.ContentDisplay.LEFT);
         btnPendaftaran.setContentDisplay(javafx.scene.control.ContentDisplay.LEFT);
         btnPemeriksaan.setContentDisplay(javafx.scene.control.ContentDisplay.LEFT);
         btnRekam.setContentDisplay(javafx.scene.control.ContentDisplay.LEFT);
@@ -210,9 +211,6 @@ private void toggleSidebar() {
         collapsed = false;
     }
     
-    // ==========================================
-    // PAKSA REFRESH LAYOUT (Menghindari Bug Visual)
-    // ==========================================
     sidebar.requestLayout();
 }
 
@@ -256,6 +254,16 @@ private void toggleSidebar() {
         SceneUtil.openMaximizedWindow("/view/prediksi.fxml", "Prediksi ML");
     }
 
+    @FXML
+    private void openPoli() {
+        SceneUtil.openMaximizedWindow("/view/poli.fxml", "Data Poli");
+    }
+
+    @FXML
+    private void openJadwal() {
+        SceneUtil.openMaximizedWindow("/view/jadwal.fxml", "Jadwal");
+    }
+    
     @FXML
     private void openRiwayatPrediksi() {
         String path = "/view/hasil_riwayat.fxml";
@@ -342,8 +350,8 @@ private void toggleSidebar() {
     }
 
     private void loadPasienTerbaru() {
-    masterDataPasien.clear(); // Bersihkan list master sebelum diisi ulang
-    String sql = "SELECT * FROM pasien ORDER BY id_pasien DESC LIMIT 10"; // Asumsi query kamu
+    masterDataPasien.clear(); 
+    String sql = "SELECT * FROM pasien ORDER BY id_pasien DESC LIMIT 10"; 
     
     try (Connection conn = DBConnection.connect();
          Statement st = conn.createStatement();
@@ -357,11 +365,9 @@ private void toggleSidebar() {
             p.setGender(rs.getString("gender")); 
             p.setAlamat(rs.getString("alamat"));
             
-            masterDataPasien.add(p); // Masukkan ke Master List!
+            masterDataPasien.add(p); 
         }
         
-        // PENTING: Jangan tulis tablePasienTerbaru.setItems(...) di sini lagi!
-        // Biarkan fungsi setupPencarianRealTime() yang mengatur masuknya data ke tabel.
         
     } catch (Exception e) {
         e.printStackTrace();
@@ -372,14 +378,13 @@ private void toggleSidebar() {
     private void setTombolPresisi(Button btn, String emoji, String teks) {
         if (btn != null) {
             javafx.scene.control.Label iconLabel = new javafx.scene.control.Label(emoji);
-            iconLabel.setPrefWidth(35); // Kunci lebarnya agar semua ikon sejajar
+            iconLabel.setPrefWidth(35); 
             iconLabel.setAlignment(javafx.geometry.Pos.CENTER);
-            iconLabel.setStyle("-fx-font-size: 18px;"); // Ukuran emoji
-
+            iconLabel.setStyle("-fx-font-size: 18px;"); 
             btn.setGraphic(iconLabel);
             btn.setText(teks);
-            btn.setGraphicTextGap(5); // Jarak presisi antara ikon dan huruf pertama
-            btn.setAlignment(javafx.geometry.Pos.CENTER_LEFT); // Pastikan rata kiri
+            btn.setGraphicTextGap(5); 
+            btn.setAlignment(javafx.geometry.Pos.CENTER_LEFT); 
         }
     }
 
@@ -392,7 +397,7 @@ private void toggleSidebar() {
     txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
         filteredData.setPredicate(pasien -> {
             if (newValue == null || newValue.isEmpty()) {
-                return true; // Jika kosong, tampilkan semua
+                return true; 
             }
             
             String lowerCaseFilter = newValue.toLowerCase();
@@ -430,7 +435,7 @@ private void toggleSidebar() {
          
         if (rs.next()) {
             int total = rs.getInt("total_semua_prediksi");
-            lblTotalPrediksi.setText(String.valueOf(total)); // Update angka 532 menjadi data asli
+            lblTotalPrediksi.setText(String.valueOf(total));
         }
         
     } catch (Exception e) {

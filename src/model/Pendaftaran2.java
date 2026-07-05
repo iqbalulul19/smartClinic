@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+/*import java.util.Date;
 
 public class Pendaftaran2 {
 
@@ -39,3 +39,4 @@ public class Pendaftaran2 {
                 + pasien.getNama());
     }
 }
+*/

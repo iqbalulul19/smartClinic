@@ -18,6 +18,11 @@ public class DokterDAO {
         this.conn = conn;
     }
 
+    public DokterDAO() {
+        // Otomatis mengambil koneksi sendiri
+        this.conn = database.DBConnection.connect(); 
+    }
+
     // 1. Fitur Menambahkan Dokter Baru (CREATE)
     public boolean tambahDokter(Dokter dokter) {
         String sql = "INSERT INTO dokter (nama, spesialis, no_hp) VALUES (?, ?, ?)";

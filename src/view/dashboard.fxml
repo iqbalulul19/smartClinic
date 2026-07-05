@@ -26,6 +26,8 @@
                 <Button fx:id="btnPasien" text="👨‍⚕  Pasien" styleClass="menu-btn" onAction="#openPasien"/>
                 <Button fx:id="btnDokter" text="🩺  Dokter" styleClass="menu-btn" onAction="#openDokter" />
                 <Button fx:id="btnPetugas" text="👩‍💼  Petugas" styleClass="menu-btn" onAction="#openPetugas"/>
+                <Button fx:id="btnPoli" text="🏥  Poli" styleClass="menu-btn" onAction="#openPoli"/>
+                <Button fx:id="btnJadwal" text="📅  Jadwal" styleClass="menu-btn" onAction="#openJadwal"/>
                 <Button fx:id="btnObat" text="💊  Obat" styleClass="menu-btn" onAction="#openObat"/>
 
                 <Label fx:id="lblTransaksi" text="TRANSAKSI" styleClass="menu-group"/>
